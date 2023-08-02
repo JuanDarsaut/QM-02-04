@@ -5,7 +5,7 @@
     xmlns:f="sap.f"
     xmlns:fb="sap.ui.comp.filterbar">
     <App id="app">
-     <f:DynamicPage id="page" showFooter="True">
+     <f:DynamicPage id="page" showFooter="true">
         <f:title>
             <f:DynamicPageTitle>
                 <f:heading>
@@ -105,6 +105,14 @@
                 </columns>
             </Table>
         </f:content>
+        <f:footer>
+            <OverflowToolbar id="footertb">
+                <Text text="{i18n>totalRegistros}"/>
+                <Text text="{i18n>totalDefA}"/>
+                <Text text="{i18n>totalDefB}"/>
+                <Text text="{i18n>totalDefC}"/>
+            </OverflowToolbar>
+        </f:footer>
      </f:DynamicPage>
     </App>
 </mvc:View>
