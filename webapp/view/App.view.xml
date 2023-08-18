@@ -4,56 +4,59 @@
     xmlns="sap.m"
     xmlns:f="sap.f"
     xmlns:fb="sap.ui.comp.filterbar">
+
+
+
     <App id="app">
      <f:DynamicPage id="page" showFooter="true">
         <f:title>
-            <f:DynamicPageTitle>
+            <f:DynamicPageTitle id="idDynPageTitle">
                 <f:heading>
-                    <Title text="{i18n>title}" />
+                    <Title id="idPageTitle" text="{i18n>title}" />
                 </f:heading>            
             </f:DynamicPageTitle>
         </f:title>
         <f:header>
-            <f:DynamicPageHeader >
+            <f:DynamicPageHeader id="idDynPageHeader">
                 <f:content>
                     <fb:FilterBar id="idFilterBar" showGoOnFB="true" search="onFiltrar">
                         <fb:filterGroupItems>
-                            <fb:FilterGroupItem groupName="filtros" name="A" label="{i18n>presentacion}" visibleInFilterBar="true">
+                            <fb:FilterGroupItem id="idItemPresentacion" groupName="filtros" name="A" label="{i18n>presentacion}" visibleInFilterBar="true">
                                 <fb:control>
                                     <Input id="idFilterPresentacion"/>
                                 </fb:control>
                             </fb:FilterGroupItem>
-                            <fb:FilterGroupItem groupName="filtros" name="B" label="{i18n>lote}" visibleInFilterBar="true">
+                            <fb:FilterGroupItem id ="idItemLote" groupName="filtros" name="B" label="{i18n>lote}" visibleInFilterBar="true">
                                 <fb:control>
                                     <Input id="idFilterLote"/>
                                 </fb:control>
                             </fb:FilterGroupItem>
-                            <fb:FilterGroupItem groupName="filtros" name="C" label="{i18n>coordinacion}" visibleInFilterBar="true">
+                            <fb:FilterGroupItem id ="idItemCoordinacion" groupName="filtros" name="C" label="{i18n>coordinacion}" visibleInFilterBar="true">
                                 <fb:control>
                                     <Input id="idFilterCoordinacion"/>
                                 </fb:control>
                             </fb:FilterGroupItem>
-                            <fb:FilterGroupItem groupName="filtros" name="D" label="{i18n>inspector}" visibleInFilterBar="true">
+                            <fb:FilterGroupItem id ="idItemInspector" groupName="filtros" name="D" label="{i18n>inspector}" visibleInFilterBar="true">
                                 <fb:control>
                                     <Input id="idFilterInspector"/>
                                 </fb:control>
                             </fb:FilterGroupItem>
-                            <fb:FilterGroupItem groupName="filtros" name="E" label="{i18n>fecha}" visibleInFilterBar="true">
+                            <fb:FilterGroupItem id ="idItemFecha" groupName="filtros" name="E" label="{i18n>fecha}" visibleInFilterBar="true">
                                 <fb:control>
                                     <Input id="idFilterFecha"/>
                                 </fb:control>
                             </fb:FilterGroupItem>
-                            <fb:FilterGroupItem groupName="filtros" name="F" label="{i18n>codigo}" visibleInFilterBar="true">
+                            <fb:FilterGroupItem id ="idItemCodigo" groupName="filtros" name="F" label="{i18n>codigo}" visibleInFilterBar="true">
                                 <fb:control>
                                     <Input id="idFilterCodigo"/>
                                 </fb:control>
                             </fb:FilterGroupItem>
-                            <fb:FilterGroupItem groupName="filtros" name="G" label="{i18n>descripcion}" visibleInFilterBar="true">
+                            <fb:FilterGroupItem id ="idItemDescripcion" groupName="filtros" name="G" label="{i18n>descripcion}" visibleInFilterBar="true">
                                 <fb:control>
                                     <Input id="idFilterDescripcion"/>
                                 </fb:control>
                             </fb:FilterGroupItem>
-                            <fb:FilterGroupItem groupName="filtros" name="H" label="{i18n>numero}" visibleInFilterBar="true">
+                            <fb:FilterGroupItem id ="idItemNumero" groupName="filtros" name="H" label="{i18n>numero}" visibleInFilterBar="true">
                                 <fb:control>
                                     <Input id="idFilterNumero"/>
                                 </fb:control>
@@ -61,17 +64,30 @@
                         </fb:filterGroupItems>
                     </fb:FilterBar>
                 </f:content>
-                <OverflowToolbar>
-                    <Button text="{i18n>grabar}"/>
-                    <Button text="{i18n>modificar}"/>
-                    <Button text="{i18n>borrar}"/>
-                    <Button text="{i18n>consultar}"/>
+                <OverflowToolbar id="idTbHeader">
+                    <Label text="{i18n>defectos}"/>
+                    <Input  width="300px"/>
+                    <Label text="{i18n>observaciones}"/>
+                    <Input  width="300px" />
+
+                    <ToolbarSpacer />
+
+                    <Button id ="grabarBtn" text="{i18n>grabar}"/>
+                    <Button id ="modificarBtn" text="{i18n>modificar}"/>
+                    <Button id ="borrarBtn" text="{i18n>borrar}"/>
+                    <Button id ="consultarBtn" text="{i18n>consultar}"/>
                 </OverflowToolbar>
             </f:DynamicPageHeader>
         </f:header>
         
         <f:content>
-            <Table>
+            <Table id="idTable">
+                <headerToolbar>
+                    <Toolbar id="tableHeaderTb">
+                        <Button id="docBtn" text="{i18n>doc}"/>
+                        <Button id="hdeBtn" text="{i18n>hde}"/>
+                    </Toolbar>
+                </headerToolbar>
                 <columns>
                     <Column >
                         <Text text="{i18n>lote}" />
@@ -116,11 +132,11 @@
             </Table>
         </f:content>
         <f:footer>
-            <OverflowToolbar id="footertb">
-                <Text text="{i18n>totalRegistros}"/>
-                <Text text="{i18n>totalDefA}"/>
-                <Text text="{i18n>totalDefB}"/>
-                <Text text="{i18n>totalDefC}"/>
+            <OverflowToolbar id="footerTb">
+                <Text id="idRegTot" text="{i18n>totalRegistros}"/>
+                <Text id="idDefTotA" text="{i18n>totalDefA}"/>
+                <Text id="idDefTotB" text="{i18n>totalDefB}"/>
+                <Text id="idDefTotC" text="{i18n>totalDefC}"/>
             </OverflowToolbar>
         </f:footer>
      </f:DynamicPage>
