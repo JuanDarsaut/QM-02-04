@@ -56,7 +56,24 @@
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
           "bundleName": "customer.zlomansernum.zlomansernum.i18n.i18n"
-        }
+        },
+        "SERIES": {
+
+          "uri": "/sap/opu/odata/sap/ZQM_SERIES_SRV/",
+
+          "type": "sap.ui.model.odata.v2.ODataModel",
+
+          "preload": true,
+
+          "settings": {
+
+              "json": true,
+
+              "odataVersion": "2.0"
+
+          }
+
+      }
       }
     },
     "resources": {
