@@ -4,11 +4,9 @@ sap.ui.define(
     ],
     function(BaseController) {
       "use strict";
-  
       return BaseController.extend("customer.zlomansernum.zlomansernum.controller.App", {
         onInit() {
         }
       });
     }
   );
-  

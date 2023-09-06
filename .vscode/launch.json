@@ -25,7 +25,8 @@
       "env": {
         "DEBUG": "--inspect",
         "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
-        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/zlomansernum\"}"
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/zlomansernum\"}",
+        "FIORI_TOOLS_BACKEND_CONFIG": "[{\"path\":null,\"destination\":\"M19\"}]"
       }
     },
     {
@@ -54,6 +55,32 @@
       "env": {
         "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
         "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/zlomansernum\"}"
+      }
+    },
+    {
+      "name": "zlomansernum-config1",
+      "cwd": "${workspaceFolder}",
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "args": [
+        "--open",
+        "test/flpSandbox.html"
+      ],
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "outputCapture": "std",
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/zlomansernum\"}",
+        "FIORI_TOOLS_BACKEND_CONFIG": "[{\"path\":\"/sap\",\"url\":\"http://m19:443\",\"client\":\"700\",\"destination\":\"M19\"},{\"path\":\"/sap/opu/odata/sap/ZQM_SERIES_SRV\",\"url\":\"http://m19:443\",\"client\":\"700\",\"destination\":\"M19\"}]",
+        "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false"
       }
     }
   ]
