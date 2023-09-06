@@ -43,7 +43,7 @@
                             </fb:FilterGroupItem>
                             <fb:FilterGroupItem id ="idItemFecha" groupName="filtros" name="E" label="{i18n>fecha}" visibleInFilterBar="true">
                                 <fb:control>
-                                    <Input id="idFilterFecha"/>
+                                    <DatePicker id="idFilterFecha"/>
                                 </fb:control>
                             </fb:FilterGroupItem>
                             <fb:FilterGroupItem id ="idItemCodigo" groupName="filtros" name="F" label="{i18n>codigo}" visibleInFilterBar="true">
@@ -75,13 +75,15 @@
                     <Button id ="grabarBtn" text="{i18n>grabar}"/>
                     <Button id ="modificarBtn" text="{i18n>modificar}"/>
                     <Button id ="borrarBtn" text="{i18n>borrar}"/>
-                    <Button id ="consultarBtn" text="{i18n>consultar}"/>
                 </OverflowToolbar>
             </f:DynamicPageHeader>
         </f:header>
         
         <f:content>
-            <Table id="idTable"             
+            <Table id="idTable" 
+                items="{
+                    path: 'global>/Registros'
+                }"            
             >
                 <headerToolbar>
                     <Toolbar id="tableHeaderTb">
@@ -130,6 +132,49 @@
                         <Text text="{i18n>suministrador}" />
                     </Column>
                 </columns>
+                <items>
+                    <ColumnListItem >
+                        <cells >
+                            <Text text="{i18n>lote}" />
+                        </cells >
+                        <cells >
+                            <Text text="{i18n>inspector}" />
+                        </cells>
+                        <cells >
+                            <Text text="{i18n>fecha}" />
+                        </cells>
+                        <cells >
+                            <Text text="{i18n>codigo}" />
+                        </cells>
+                        <cells >
+                            <Text text="{i18n>numero}" />
+                        </cells>
+                        <cells >
+                            <Text text="{i18n>descripcion}" />
+                        </cells>
+                        <cells >
+                            <Text text="{i18n>defectos}" />
+                        </cells>
+                        <cells >
+                            <Text text="{i18n>observaciones}" />
+                        </cells>
+                        <cells >
+                            <Text text="{i18n>tipoDefecto}" />
+                        </cells>
+                        <cells >
+                            <Text text="{i18n>doc}" />
+                        </cells>
+                        <cells >
+                            <Text text="{i18n>hde}" />
+                        </cells>
+                        <cells >
+                            <Text text="{i18n>loteSAP}" />
+                        </cells>
+                        <cells >
+                            <Text text="{i18n>suministrador}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
             </Table>
         </f:content>
         <f:footer>
