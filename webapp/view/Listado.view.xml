@@ -43,7 +43,7 @@
                             </fb:FilterGroupItem>
                             <fb:FilterGroupItem id ="idItemFecha" groupName="filtros" name="E" label="{i18n>fecha}" visibleInFilterBar="true">
                                 <fb:control>
-                                    <DatePicker id="idFilterFecha"/>
+                                    <DateRangeSelection id="idFilterFecha"/>
                                 </fb:control>
                             </fb:FilterGroupItem>
                             <fb:FilterGroupItem id ="idItemCodigo" groupName="filtros" name="F" label="{i18n>codigo}" visibleInFilterBar="true">
@@ -65,12 +65,23 @@
                     </fb:FilterBar>
                 </f:content>
                 <OverflowToolbar id="idTbHeader">
-                    <Label text="{i18n>defectos}"/>
-                    <Input  width="300px" enabled="false"/>
-                    <Label text="{i18n>observaciones}"/>
-                    <Input  width="300px" enabled="false"/>
+                    <Label id="idTextDefectos" text="{i18n>defectos}"/>
+                    <TextArea id="idTextAreaDefectos" enabled="false"/>
 
-                    <ToolbarSpacer />
+                    <RadioButtonGroup id="radioBtnGroup" columns="4">
+			            <RadioButton id="radioBtnN" text="{i18n>sinDefecto}" />
+                        <RadioButton id="radioBtnA" text="{i18n>defectoA}" />
+			            <RadioButton id="radioBtnB" text="{i18n>defectoB}" />
+			            <RadioButton id="radioBtnC" text="{i18n>defectoC}" />
+		            </RadioButtonGroup>
+
+                    <ToolbarSeparator id="toolbarSeparator1"/>
+
+                    <Label id="idTextObservaciones" text="{i18n>observaciones}"/>
+                    <TextArea id="idTextAreaObservaciones" enabled="false"/>
+
+                    <ToolbarSpacer id="toolbarSpacer"/>
+                    <ToolbarSeparator id="toolbarSeparator2"/>
 
                     <Button id ="grabarBtn" text="{i18n>grabar}"/>
                     <Button id ="modificarBtn" text="{i18n>modificar}"/>
@@ -83,95 +94,90 @@
             <Table id="idTable" 
                 items="{
                     path: 'global>/Registros'
-                }"            
+                }"
+                mode="MultiSelect"
             >
                 <headerToolbar>
                     <Toolbar id="tableHeaderTb">
-                        <Button id="docBtn" text="{i18n>doc}"/>
-                        <Button id="hdeBtn" text="{i18n>hde}"/>
+                        <Button id="docHeaderBtn" text="{i18n>doc}" icon="sap-icon://add-document"/>
+                        <Button id="hdeHeaderBtn" text="{i18n>hde}" icon="sap-icon://add-document"/>
                     </Toolbar>
                 </headerToolbar>
                 <columns>
-                    <Column >
-                        <Text text="{i18n>lote}" />
+                    <Column id="idColumnLote">
+                        <Text id="idColumnTextLote" text="{i18n>lote}" />
                     </Column>
-                    <Column >
-                       <Text text="{i18n>inspector}" />
+                    <Column id="idColumnInspector">
+                       <Text id="idColumnTextInspector" text="{i18n>inspector}" />
                     </Column>
-                    <Column >
-                        <Text text="{i18n>fecha}" />
+                    <Column id="idColumnFecha">
+                        <Text id="idColumnTextFecha" text="{i18n>fecha}" />
                     </Column>
-                    <Column >
-                        <Text text="{i18n>codigo}" />
+                    <Column id="idColumnCodigo">
+                        <Text id="idColumnTextCodigo" text="{i18n>codigo}" />
                     </Column>
-                    <Column >
-                        <Text text="{i18n>numero}" />
+                    <Column id="idColumnNumero">
+                        <Text id="idColumnTextNumero" text="{i18n>numero}" />
                     </Column>
-                    <Column >
-                        <Text text="{i18n>descripcion}" />
+                    <Column id="idColumnDescripcion">
+                        <Text id="idColumnTextDescripcion" text="{i18n>descripcion}" />
                     </Column>
-                    <Column >
-                        <Text text="{i18n>defectos}" />
+                    <Column id="idColumnDefectos">
+                        <Text id="idColumnTextDefectos" text="{i18n>defectos}" />
                     </Column>
-                    <Column >
-                        <Text text="{i18n>observaciones}" />
+                    <Column id="idColumnObservaciones">
+                        <Text id="idColumnTextObservaciones" text="{i18n>observaciones}" />
                     </Column>
-                    <Column >
-                        <Text text="{i18n>tipoDefecto}" />
+                    <Column id="idColumntipoDefecto">
+                        <Text id="idColumnTextTipoDefecto" text="{i18n>tipoDefecto}" />
                     </Column>
-                    <Column >
-                        <Text text="{i18n>doc}" />
+                    <Column id="idColumnDoc">
+                        <Text id="idColumnTextDoc" text="{i18n>doc}" />
                     </Column>
-                    <Column >
-                        <Text text="{i18n>hde}" />
+                    <Column id="idColumnHde">
+                        <Text id="idColumnTextHde" text="{i18n>hde}" />
                     </Column>
-                    <Column >
-                        <Text text="{i18n>loteSAP}" />
-                    </Column>
-                    <Column >
-                        <Text text="{i18n>suministrador}" />
+                    <Column id="idColumnSuministrador">
+                        <Text id="idColumnTextSuministrador" text="{i18n>suministrador}" />
                     </Column>
                 </columns>
                 <items>
-                    <ColumnListItem >
+                    <ColumnListItem id="idColumnListItem">
                         <cells >
-                            <Text text="{i18n>lote}" />
+                            <Text id="idCellTextLote" text="{global>Lote}" />
                         </cells >
                         <cells >
-                            <Text text="{i18n>inspector}" />
+                            <Text id="idCellTextInspector" text="{global>Inspector}" />
                         </cells>
                         <cells >
-                            <Text text="{i18n>fecha}" />
+                            <Text id="idCellTextFecha" text="{global>Fecha}" />
                         </cells>
                         <cells >
-                            <Text text="{i18n>codigo}" />
+                            <Text id="idCellTextCodigo" text="{global>Codigo}" />
                         </cells>
                         <cells >
-                            <Text text="{i18n>numero}" />
+                            <Text id="idCellTextNumero" text="{global>Numeroserie}" />
                         </cells>
                         <cells >
-                            <Text text="{i18n>descripcion}" />
+                            <Text id="idCellTextDescripcion" text="{global>Descripcion}" />
                         </cells>
                         <cells >
-                            <Text text="{i18n>defectos}" />
+                            <Text id="idCellTextDefectos" text="{global>Defectos}" />
                         </cells>
                         <cells >
-                            <Text text="{i18n>observaciones}" />
+                            <Text id="idCellTextObservaciones" text="{global>Observaciones}" />
                         </cells>
                         <cells >
-                            <Text text="{i18n>tipoDefecto}" />
+                            <Text id="idCellTextTipoDefecto" text="{global>TipoDefecto}" />
                         </cells>
                         <cells >
-                            <Text text="{i18n>doc}" />
+                            <Button id="docTableBtn" icon="sap-icon://show" />
                         </cells>
                         <cells >
-                            <Text text="{i18n>hde}" />
+                            <Button id="hdeTableBtn" icon="sap-icon://show" />
                         </cells>
                         <cells >
-                            <Text text="{i18n>loteSAP}" />
-                        </cells>
-                        <cells >
-                            <Text text="{i18n>suministrador}" />
+                            <Text id="idCellTextSuministrador" text="{global>Suministrador}" />
                         </cells>
                     </ColumnListItem>
                 </items>
